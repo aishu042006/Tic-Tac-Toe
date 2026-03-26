@@ -1,0 +1,249 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app {
+  text-align: center;
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  max-width: 600px;
+  width: 90%;
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+}
+
+/* Game Mode Styles */
+.game-mode {
+  padding: 2rem;
+}
+
+.game-mode h2 {
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+.mode-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+}
+
+.mode-buttons button {
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 10px;
+  background: #667eea;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.mode-buttons button:hover {
+  background: #764ba2;
+  transform: scale(1.05);
+}
+
+/* Game Header */
+.game-header {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.back-btn, .reset-btn, .reset-scores-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+
+.back-btn {
+  background: #ff6b6b;
+  color: white;
+}
+
+.back-btn:hover {
+  background: #ff5252;
+}
+
+.reset-btn {
+  background: #4ecdc4;
+  color: white;
+}
+
+.reset-btn:hover {
+  background: #3dbeb4;
+}
+
+.reset-scores-btn {
+  background: #feca57;
+  color: white;
+}
+
+.reset-scores-btn:hover {
+  background: #febc3d;
+}
+
+/* Scoreboard */
+.scoreboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin: 2rem 0;
+  padding: 1rem;
+  background: #f7f7f7;
+  border-radius: 10px;
+}
+
+.score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.player-x {
+  color: #ff6b6b;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.player-o {
+  color: #4ecdc4;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.score-value {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+.score-divider {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #999;
+}
+
+/* Game Status */
+.game-status {
+  margin: 1rem 0;
+  font-size: 1.2rem;
+  color: #333;
+  min-height: 60px;
+}
+
+/* Board */
+.board {
+  display: inline-block;
+  background: #333;
+  padding: 5px;
+  border-radius: 10px;
+  margin: 1rem 0;
+}
+
+.board-row {
+  display: flex;
+}
+
+/* Square */
+.square {
+  width: 100px;
+  height: 100px;
+  background: white;
+  border: 2px solid #333;
+  font-size: 3rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin: 2px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.square:hover:not(:disabled) {
+  background: #f0f0f0;
+  transform: scale(1.05);
+}
+
+.square:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.square-X {
+  color: #ff6b6b;
+}
+
+.square-O {
+  color: #4ecdc4;
+}
+
+.square.winning {
+  background: #a8e6cf;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.game-mode-indicator {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  background: #f0f0f0;
+  border-radius: 5px;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 500px) {
+  .app {
+    padding: 1rem;
+  }
+  
+  .square {
+    width: 70px;
+    height: 70px;
+    font-size: 2rem;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  .game-header {
+    flex-direction: column;
+  }
+  
+  .back-btn, .reset-btn, .reset-scores-btn {
+    width: 100%;
+  }
+}
